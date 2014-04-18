@@ -20,7 +20,6 @@
 #include <string>
 #include "dynamic-graph/python/api.hh"
 #include "dynamic-graph/python/deprecated.hh"
-#include <boost/interprocess/sync/interprocess_mutex.hpp>
 
 #ifndef DYNAMIC_GRAPH_PYTHON_INTERPRETER_H
 # define DYNAMIC_GRAPH_PYTHON_INTERPRETER_H
@@ -69,8 +68,6 @@ namespace dynamicgraph {
       PyObject* locals_;
       PyObject* mainmod_;
       PyObject* traceback_format_exception_;
-
-      boost::shared_ptr<boost::interprocess::interprocess_mutex> mutex_;
     };
   } // namespace python
 } // namespace dynamicgraph
