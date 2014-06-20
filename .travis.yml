@@ -1,5 +1,5 @@
 language: cpp
-compiler: 
+compiler:
 - gcc
 - clang
 env:
@@ -15,8 +15,13 @@ notifications:
   - francois.keith@gmail.com
 branches:
   only:
-  - next_master
+  - master
+  - debian
 script: ./.travis/run build
 after_success: ./.travis/run after_success
 after_failure: ./.travis/run after_failure
 before_install: ./.travis/run before_install
+matrix:
+  allow_failures:
+    - compiler: clang
+
