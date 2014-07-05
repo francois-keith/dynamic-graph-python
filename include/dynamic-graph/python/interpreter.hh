@@ -20,6 +20,7 @@
 #include <string>
 #include "dynamic-graph/python/api.hh"
 #include "dynamic-graph/python/deprecated.hh"
+#include <boost/interprocess/sync/interprocess_mutex.hpp>
 
 #ifndef DYNAMIC_GRAPH_PYTHON_INTERPRETER_H
 # define DYNAMIC_GRAPH_PYTHON_INTERPRETER_H
@@ -60,6 +61,9 @@ namespace dynamicgraph {
 
       /// \brief Return a pointer to the dictionary of global variables
       PyObject* globals();
+
+    private:
+      static boost::interprocess::interprocess_mutex mutex_;
 
     private:
       /// Pointer to the dictionary of global variables
